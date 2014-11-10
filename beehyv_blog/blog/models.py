@@ -3,15 +3,15 @@ from django.template.defaultfilters import slugify
 
 class User_record(models.Model):
     user_id=models.AutoField(primary_key=True)
-    first_name=models.CharField(max_length=20)
-    last_name=models.CharField(max_length=20)
-    username=models.CharField(max_length=20, unique=True, editable=False)
+    first_name=models.CharField(max_length=50)
+    last_name=models.CharField(max_length=50, blank=True)
+    username=models.CharField(max_length=50, unique=True)
     password=models.CharField(max_length=50)
-    email=models.EmailField(unique=True, max_length=50, editable=False)
+    email=models.EmailField(unique=True, max_length=50)
     mobile=models.CharField(max_length=10, unique=True)
-    designation=models.CharField(max_length=20)
+    designation=models.CharField(max_length=50)
     created_date_time=models.DateTimeField(auto_now_add=True, editable=False)
-    last_login=models.DateTimeField(auto_now=True)
+    last_login=models.DateTimeField(auto_now=True, editable=False)
     is_active=models.BooleanField(default=False)
     is_delete=models.BooleanField(default=False)
     is_admin=models.BooleanField(default=False)
@@ -22,14 +22,14 @@ class User_record(models.Model):
         super(User_record, self).save(*args, **kwargs)
 
 class BlogPost_record(models.Model):
-    user_id = models.ForeignKey(User_record)
     blogPost_id=models.AutoField(primary_key=True)
+    user_id = models.ForeignKey(User_record)
     title=models.CharField(max_length=200)
-    content=models.TextField()
+    content=models.CharField(max_length=50000)
     created_date_time=models.DateTimeField(auto_now_add=True)
-    total_views=models.IntegerField()
+    total_views=models.IntegerField(default=0)
     visibility=models.BooleanField(default=True)
-    slug = models.SlugField(max_length=255, blank=True, default='')
+    slug = models.SlugField(max_length=255, blank=True, default='', unique=True)
 
     def __unicode__(self):
         return self.title
@@ -44,8 +44,8 @@ class Comment_record(models.Model):
     comment_id=models.AutoField(primary_key=True)
     blog_post_id=models.ForeignKey(BlogPost_record)
     user_id=models.ForeignKey(User_record)
-    created_date_time=models.DateTimeField(auto_now_add=True)
-    comment=models.TextField()
+    created_date_time=models.DateTimeField(auto_now_add=True, editable=False)
+    comment=models.CharField(max_length=50000)
     visibility=models.BooleanField(default=True)
 
     def __unicode__(self):
@@ -57,7 +57,7 @@ class Tags_list(models.Model):
     tag_id=models.AutoField(primary_key=True)
     tag_name=models.CharField(max_length=50)
     user_id =models.ForeignKey(User_record)
-    created_date_time=models.DateTimeField(auto_now_add=True)
+    created_date_time=models.DateTimeField(auto_now_add=True, editable=False)
     parent_id=models.IntegerField()
     root_id=models.IntegerField()
 
