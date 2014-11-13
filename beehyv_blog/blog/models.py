@@ -1,28 +1,28 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.contrib.auth.models import User
 
-class User_record(models.Model):
+class User_record(User):
     user_id=models.AutoField(primary_key=True)
-    first_name=models.CharField(max_length=50)
-    last_name=models.CharField(max_length=50, blank=True)
-    username=models.CharField(max_length=50, unique=True)
-    password=models.CharField(max_length=50)
-    email=models.EmailField(unique=True, max_length=50)
+#     first_name=models.CharField(max_length=50)
+#     last_name=models.CharField(max_length=50, blank=True)
+#     username=models.CharField(max_length=50, unique=True)
+#     password=models.CharField(max_length=50)
+#     email=models.EmailField(unique=True, max_length=50)
     mobile=models.CharField(max_length=10, unique=True)
     designation=models.CharField(max_length=50)
-    created_date_time=models.DateTimeField(auto_now_add=True, editable=False)
-    last_login=models.DateTimeField(auto_now=True, editable=False)
-    is_active=models.BooleanField(default=False)
-    is_delete=models.BooleanField(default=False)
-    is_admin=models.BooleanField(default=False)
+#     created_date_time=models.DateTimeField(auto_now_add=True, editable=False)
+#     last_login=models.DateTimeField(auto_now=True, editable=False)
+#     is_active=models.BooleanField(default=False)
+    is_email_verified=models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.first_name+' '+self.last_name
-    def save(self, *args, **kwargs):
-        super(User_record, self).save(*args, **kwargs)
+#     def save(self, *args, **kwargs):
+#         super(User_record, self).save(*args, **kwargs)
 
 class BlogPost_record(models.Model):
-    blogPost_id=models.AutoField(primary_key=True)
+    blog_post_id=models.AutoField(primary_key=True)
     user_id = models.ForeignKey(User_record)
     title=models.CharField(max_length=200)
     content=models.CharField(max_length=50000)
@@ -49,7 +49,7 @@ class Comment_record(models.Model):
     visibility=models.BooleanField(default=True)
 
     def __unicode__(self):
-        return self.comment[:10]+'...'
+        return self.comment
     def save(self, *args, **kwargs):
         super(Comment_record, self).save(*args, **kwargs)
 
@@ -92,6 +92,5 @@ class Liked_post(models.Model):
         pass
     def save(self, *args, **kwargs):
         super(Liked_post, self).save(*args, **kwargs)
-
 
 
