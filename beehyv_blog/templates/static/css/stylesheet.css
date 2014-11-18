@@ -1,0 +1,259 @@
+body
+{
+    position:static;
+}
+
+.title
+{
+    background-color: #F8F8FF;
+    margin-bottom:-10px;
+}
+
+.title img
+{
+    width :231px;
+    height :80px;
+    margin-left:100px;
+    margin-top:0px;
+}
+
+
+.topR
+{
+    position : relative;
+    margin-top:15px;
+    float:right;
+    font-size:20px;
+    style:none;
+    text-align: center;
+    padding:10px;
+    box-sizing:border-box;
+}
+#login
+{
+    
+    position:absolute;
+    left:78%;
+    top:2%;
+}
+#register
+{
+    position:absolute;
+    left:86%;
+    top:2%;
+}
+
+.search
+{
+    float:right;
+    margin-right:80px;
+    padding:0px;
+    
+}
+.search table tr td
+{
+    float:right;
+    margin-left:-4px;
+
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a.topR:hover {
+    color: white;
+    text-decoration: none;
+    padding:10px;
+    background-color:#00CED1; 
+    
+}
+
+a:active {
+    color: grey;
+    text-decoration: none;
+}
+
+
+.menu
+{
+    margin-left:100px;
+}
+
+
+ul
+{
+    padding: 0;
+    list-style: none;
+ 
+}
+
+ul li
+{
+    float: left;
+    width: 130px;
+    text-align: center;
+    line-height: 21px;
+}
+
+ul li a
+{
+    display: block;
+    padding: 5px 10px;
+    color: #333;
+    background: #f2f2f2;
+    text-decoration: none;
+}
+
+ul li a:hover
+{
+    color: #fff;
+    background: #939393;
+}
+
+ul li ul
+{
+    width: 40px;
+    display: none;
+}
+
+ul li:hover ul
+{
+    display: block; 
+}
+
+ul#submenu
+{
+    display: none;
+}
+
+li#first:hover #submenu
+{
+    display: block;
+    position: absolute;
+    left: auto;
+    top: auto;
+    margin-left:114px;
+    margin-top:-22px;
+}
+
+ul#submenu
+{
+    float: right;
+}
+
+.blog
+{
+    height: 400px;
+    width:775px;
+    margin-left:100px;
+    background-color:#F8F8FF;
+    position: absolute;
+    margin-top:40px;
+    z-index:-1;
+    border:1px solid #5CB8E6;
+    border-radius:2px;
+    padding: 10px;
+    
+}
+
+.recent
+{
+    height: 200px;
+    width: 248px;
+    margin-left: 1000px;
+    float: right;
+    background-color: #F8F8FF;
+    position: absolute;
+    margin-top: 40px;
+    z-index: -1;
+    border: 1px solid #5CB8E6;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.tags
+{
+    height: 200px;
+    width: 248px;
+    margin-left: 1000px;
+    float: right;
+    background-color: #F8F8FF;
+    position: absolute;
+    margin-top: 280px;
+    z-index: -1;
+    border: 1px solid #5CB8E6;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+div.register input
+{
+    margin-top:10px;
+    align: center;
+    position: relative;
+    
+}
+
+div.register
+{
+    display: none;
+    opacity:1;
+ 
+}
+
+#abc:hover .register
+{
+    display: block;
+    position:absolute;
+    left:70%;
+    top:29%;
+    margin-top: -140px;
+    margin-left: -150px;
+    border: 2px solid black;
+    padding: 30px;
+    height:auto;
+    width:auto;
+    border-radius:4px;
+    background-color:#F8F8FF
+}
+div.login input
+{
+    margin-top:10px;
+    align: center;
+    position: relative;
+    
+}
+
+div.login
+{
+    display: none;
+    opacity:1;
+ 
+}
+#abc:hover .login
+{
+    display: block;
+    position:absolute;
+    left:70%;
+    top:29%;
+    margin-top: -140px;
+    margin-left: -150px;
+    border: 2px solid black;
+    padding: 30px;
+    height:auto;
+    width:auto;
+    border-radius:4px;
+    background-color:#F8F8FF
+}
+#abc:hover .hideout
+{
+    opacity:0.4;
+    z-index:-1;
+}

@@ -9,10 +9,10 @@ class User_record(User):
 #     username=models.CharField(max_length=50, unique=True)
 #     password=models.CharField(max_length=50)
 #     email=models.EmailField(unique=True, max_length=50)
-    mobile=models.CharField(max_length=10, unique=True)
+    mobile=models.CharField("Mobile(10 digits)",max_length=10, unique=True)
     designation=models.CharField(max_length=50)
-#     created_date_time=models.DateTimeField(auto_now_add=True, editable=False)
-#     last_login=models.DateTimeField(auto_now=True, editable=False)
+    User.date_joined=models.DateTimeField(auto_now_add=True, editable=False)
+    User.last_login=models.DateTimeField(auto_now=True, editable=False)
 #     is_active=models.BooleanField(default=False)
     is_email_verified=models.BooleanField(default=False)
 
@@ -25,8 +25,8 @@ class BlogPost_record(models.Model):
     blog_post_id=models.AutoField(primary_key=True)
     user_id = models.ForeignKey(User_record)
     title=models.CharField(max_length=200)
-    content=models.CharField(max_length=50000)
-    created_date_time=models.DateTimeField(auto_now_add=True)
+    content=models.TextField()
+    created_date_time=models.DateTimeField(auto_now_add=True, editable = False)
     total_views=models.IntegerField(default=0)
     visibility=models.BooleanField(default=True)
     slug = models.SlugField(max_length=255, blank=True, default='', unique=True)
@@ -56,7 +56,6 @@ class Comment_record(models.Model):
 class Tags_list(models.Model):
     tag_id=models.AutoField(primary_key=True)
     tag_name=models.CharField(max_length=50)
-    user_id =models.ForeignKey(User_record)
     created_date_time=models.DateTimeField(auto_now_add=True, editable=False)
     parent_id=models.IntegerField()
     root_id=models.IntegerField()
@@ -92,5 +91,4 @@ class Liked_post(models.Model):
         pass
     def save(self, *args, **kwargs):
         super(Liked_post, self).save(*args, **kwargs)
-
-
+        

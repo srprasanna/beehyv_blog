@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{% block title %}Beehyv Blog{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+	<script language="JavaScript" type='text/javascript' src='script.js'></script>		
+	<link rel='stylesheet' type='text/css' href='stylesheet.css'/>
+    	<style>
+
+body
+{
+    position:static;
+}
+
+.hideout
+{
+	opacity:0.80;
+	z-index:-1;
+}
+
+.title
+{
+    background-color: #F8F8FF;
+    margin-bottom:-10px;
+}
+
+.title img
+{
+    width :231px;
+    height :80px;
+    margin-left:100px;
+    margin-top:0px;
+}
+
+.topR
+{
+    position : relative;
+    margin-top:20px;
+    float:right;
+    font-size:20px;
+    style:none;
+    text-align: center;
+    padding:10px;
+    box-sizing:border-box;
+}
+
+
+.search
+{
+    float:right;
+    margin-right:80px;
+    padding:0px;
+    
+}
+.search table tr td
+{
+    float:right;
+    margin-left:-4px;
+
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a.topR:hover {
+    color: white;
+    text-decoration: none;
+    padding:10px;
+    background-color:#00CED1; 
+    
+}
+
+a:active {
+    color: grey;
+    text-decoration: none;
+}
+
+
+.menu
+{
+    margin-left:100px;
+}
+
+
+ul
+{
+    padding: 0;
+    list-style: none;
+ 
+}
+
+ul li
+{
+    float: left;
+    width: 114px;
+    text-align: center;
+    line-height: 21px;
+}
+
+ul li a
+{
+    display: block;
+    padding: 5px 10px;
+    color: #333;
+    background: #f2f2f2;
+    text-decoration: none;
+}
+
+ul li a:hover
+{
+    color: #fff;
+    background: #939393;
+}
+
+ul li ul
+{
+    width: 40px;
+    display: none;
+}
+
+ul li:hover ul
+{
+    display: block; 
+}
+
+ul#submenu
+{
+    display: none;
+}
+
+li#first:hover #submenu
+{
+    display: block;
+    position: absolute;
+    left: auto;
+    top: auto;
+    margin-left:114px;
+    margin-top:-22px;
+}
+
+ul#submenu
+{
+    float: right;
+}
+
+.blog
+{
+    height: 400px;
+    width:775px;
+    margin-left:100px;
+    background-color:#F8F8FF;
+    position: absolute;
+    margin-top:40px;
+    z-index:-1;
+    border:1px solid #5CB8E6;
+    border-radius:2px;
+    padding: 10px;
+    
+}
+
+.recent
+{
+    height: 200px;
+    width: 248px;
+    margin-left: 1000px;
+    float: right;
+    background-color: #F8F8FF;
+    position: absolute;
+    margin-top: 40px;
+    z-index: -1;
+    border: 1px solid #5CB8E6;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.tags
+{
+    height: 200px;
+    width: 248px;
+    margin-left: 1000px;
+    float: right;
+    background-color: #F8F8FF;
+    position: absolute;
+    margin-top: 280px;
+    z-index: -1;
+    border: 1px solid #5CB8E6;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+
+
+div.register
+{
+    display:block;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top: -190px;
+    margin-left: -200px;
+    border: 2px solid black;
+    padding: 30px;
+    height:300px;
+    width:400px;
+    border-radius:4px;
+    background-color:#F8F8FF;
+    
+}
+
+
+    	</style>
+    	
+    	
+    </head>
+    
+    
+    <body>
+    	
+    	<span class="hideout">
+        <div class = "title">
+            <span> <img src="logo.jpg" /></span>
+            
+        </div>
+        <hr>
+        <div class="navig">
+        <ul class="menu">
+            <li><a href="">Home</a></li>
+            <li><a href="">Technologies</a>
+                <ul>
+                    <li id="first"><a href="">First</a>
+                        <ul id ="submenu">
+                            <li><a href="">One</a></li>
+                            <li><a href="">Two</a></li>
+                            <li><a href="">Three</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Second</a></li>
+                    <li><a href="">Third</a></li>
+                </ul>
+            </li>
+            <li><a href="">Frameworks</a>
+                <ul>
+                    <li><a href="">First</a></li>
+                    <li><a href="">Second</a></li>
+                    <li><a href="">Third</a></li>
+                </ul>
+            </li>
+            <li><a href="">Databases</a>
+                <ul>
+                    <li><a href="">First</a></li>
+                    <li><a href="">Second</a></li>
+                    <li><a href="">Third</a></li>
+                </ul>
+            </li>
+            <li><a href="">Web Services</a>
+                <ul>
+                    <li><a href="">First</a></li>
+                    <li><a href="">Second</a></li>
+                    <li><a href="">Third</a></li>
+                </ul>
+            </li>
+            <li><a href="">UI</a>
+                <ul>
+                    <li><a href="">First</a></li>
+                    <li><a href="">Second</a></li>
+                    <li><a href="">Third</a></li>
+                </ul>
+            </li>
+            <li><a href="">Others</a></li>
+        </ul>    
+        </div>
+                
+            
+        <div class="search">
+            <table><tr>
+                    <td><img style =" width:25px; height:25px; padding:0px" src="searchbutton3.gif"/></td>
+                    <td><input type="text" name="Search" value= "Search Here" onfocus="value=''" onblur="if(value.length == 0) value='Search Here'" style="padding:0px 0px 0px 5px; height:20px" /></td>
+                </tr></table>
+        </div>
+        
+        <div class="blog">as</div>
+       
+        <div class="recent">as</div>
+        <div class="tags">TAGS</div>
+        </span>
+        
+        <div class="register">
+            <form action="/registration_page/" method="post">
+        {% csrf_token %}
+            <table>
+        {% for field in form %}
+    
+        {{ field.errors }}
+     <tr><td>   {{ field.label_tag }}</td><td> {{ field }}</td></tr>
+    
+        {% endfor %}
+</table>
+    <input type="submit" value="Submit" />
+</form>
+        </div>
+    </body>
+</html>

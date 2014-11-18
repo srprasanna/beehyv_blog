@@ -1,5 +1,5 @@
 """
-Django settings for beehyv_blog project.
+Django settings for BlogBeehyv project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.7/topics/settings/
@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.conf.global_settings import STATICFILES_DIRS
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -18,13 +19,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'io5!4wk@pbk3@wazu8(@guegq4oiw89!n(=c^e9^hr41-wes73'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
+
+TEMPLATE_DIRS = (
+                 '/home/kranthi/git/beehyv_blog/beehyv_blog/templates',
+                 )
 
 
 # Application definition
@@ -82,3 +86,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = ('/home/kranthi/git/beehyv_blog/beehyv_blog/templates/static',)

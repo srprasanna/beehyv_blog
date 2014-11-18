@@ -6,38 +6,37 @@ Created on 10-Nov-2014
 from django import forms
 from django.forms import ModelForm
 from django.forms.widgets import Textarea
-from blog.models import User_record
+from .models import User_record,Comment_record,BlogPost_record
+from django.contrib.auth.forms import UserCreationForm
 
-class RegistrationForm(ModelForm):
+class RegistrationForm(UserCreationForm):
     class Meta:
         model=User_record
-        fields = ['first_name','last_name','username','password','email','mobile','designation']
+        fields = ['first_name','last_name','username','password1','password2','email','mobile','designation']
         
-form = RegistrationForm()
-
-regn = User_record.objects.get(pk=1)
-form = RegistrationForm(instance=regn)
-
-
-"""class RegistrationForm(forms.Form):
-    first_name=forms.CharField(label='First Name',max_length=20,required=True)
-    last_name=forms.CharField(label='Last Name',max_length=20,required=True)
-    username=forms.CharField(label='Username',max_length=20, unique=True, required=True)
-    password=forms.CharField(label='Password',max_length=50,required=True)
-    password1=forms.CharField(label='Verify Password',max_length=50,required=True)
-    email=forms.EmailField(unique=True, max_length=50, required=True)
-    mobile=forms.CharField(max_length=10, unique=True,required=True)
-    designation=forms.CharField(max_length=20,required=True)"""
     
 class BlogEntryForm(ModelForm):
-    title=forms.CharField(max_length=200)
-    content=forms.CharField(widget=Textarea)
+#     title=forms.CharField(max_length=200)
+#     content=forms.CharField(widget=Textarea)
+#     widgets = {
+#             'content': forms.Textarea(attrs={'cols': 80, 'rows': 20})
+#         }
+    class Meta:
+        model=BlogPost_record
+        fields =('title','content',)
+        
+    def save(self, user):
+        uid = super(BlogEntryForm, self).save(commit=False)
+        uid.user_id = user
+        uid.save()
 
 class Comment(ModelForm):
-    comment=forms.CharField(widget=Textarea)
+    class Meta:
+        model = Comment_record
+        fields = ('comment',)
     
 
-"""class LoginForm(ModelForm):
-    username=forms.CharField(label='Username',max_length=20, unique=True, required=True)
+"""class LoginForm(forms.Form):
+    username=forms.CharField(label='Username',max_length=20, required=True)
     password=forms.CharField(label='Password',max_length=50,required=True)"""
     
